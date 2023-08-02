@@ -44,7 +44,6 @@ const UX_Prototype = {
                 document.querySelector('.video-overlay').classList.toggle('ux-active')
                 setTimeout(() => {
                     video.play();
-                    video.currentTime = 30;
                 }, 100)
             })
         })
