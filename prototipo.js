@@ -1,9 +1,14 @@
 const UX_Prototype = {
+    date: new Date(),
+    volume: 0.3,
+
     handleSettings() {
         const icon = document.querySelector('.ux-navbar__menu--icon')
         const dropdown = document.querySelector('.ux-navbar__menu--dropdown')
         const overlay = document.querySelector('.overlay')
         const video = document.querySelector("body > div > div.ux-screen > div > video");
+        video.volume = this.volume;
+        document.querySelector('.ux-content__top-buttons--channels-item.ps').classList.add('empty')
 
         icon.addEventListener('click', () => {
             dropdown.classList.add('ux-active')
@@ -43,7 +48,11 @@ const UX_Prototype = {
                 e.target.classList.add('ux-active')
                 document.querySelector('.video-overlay').classList.toggle('ux-active')
                 setTimeout(() => {
-                    video.play();
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
                 }, 100)
             })
         })
@@ -80,7 +89,50 @@ const UX_Prototype = {
         })
 
         document.querySelector('.ux-content__console-control--actions-item.a-btn').addEventListener('click', (e) => {
-            video.pause();
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        })
+
+        document.querySelector("body > div > div.ux-control > nav > button").addEventListener('click', (e) => {
+            document.querySelector('.ux-control').classList.remove('console-control')
+        })
+
+        document.querySelector("body > div > div.ux-control > div.ux-content__control > div.ux-content__bottom-buttons > div.ux-content__bottom-buttons--central > span:nth-child(5)").addEventListener('click', (e) => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        })
+
+        document.querySelector("body > div > div.ux-control > div.ux-content__control > div.ux-content__bottom-buttons > div:nth-child(1) > span.plus").addEventListener('click', (e) => {
+            if (this.volume < 1) {
+                this.volume += 0.1;
+                video.volume = this.volume;
+            }
+
+        })
+        document.querySelector("body > div > div.ux-control > div.ux-content__control > div.ux-content__bottom-buttons > div:nth-child(1) > span.minus").addEventListener('click', (e) => {
+            console.log(this.volume)
+            if (this.volume > 0.1) {
+                this.volume -= 0.1;
+                video.volume = this.volume;
+            }
+        })
+
+        document.querySelector(".ux-content__top-buttons--channels-item.ps.empty").addEventListener('click', (e) => {
+            if (document.querySelector('.select-icon img')) {
+                document.querySelector('.select-icon').classList.add('ux-active')
+            }
+        })
+
+        document.querySelector('.select-icon img').addEventListener('click', (e) => {
+            document.querySelector('.select-icon').classList.remove('ux-active')
+            document.querySelector('.ux-content__top-buttons--channels-item.ps').classList.remove('empty')
+            document.querySelector('.ux-content__top-buttons--channels-item.ps').append(e.target)
         })
     },
 

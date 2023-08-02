@@ -7,7 +7,6 @@
     <title>Protótipo UX</title>
   </head>
   <body>
-    <button class="change">Mudar</button>
     <div class="ux-prototype console-control">
       <div class="ux-screen">
         <div class="ux-screen__tv">
@@ -22,6 +21,7 @@
       </div>
       <div class="ux-control">
         <nav class="ux-navbar">
+          <button class="ux-navbar__back"></button>
           <h1 class="ux-navbar__title">Protótipo UX</h1>
           <span class="ux-navbar__menu">
             <div class="ux-navbar__menu--icon">
@@ -30,37 +30,10 @@
               <span></span>
             </div>
             <ul class="ux-navbar__menu--dropdown">
-              <!-- <li>preferências</li> -->
               <li>Conectar Rede Wifi</li>
             </ul>
           </span>
         </nav>
-
-        <div class="ux-content">
-          <div class="ux-content__channel">
-            <span class="ux-content__channel--item">
-              <img
-                src="https://s2.glbimg.com/U7YcMKhPf3t73x6hTmOIlX4Nj3Y=/600x0/filters:quality(70)/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2023/s/i/CegLWeQIeyFg7rkA214A/logo-gnt.jpg"
-                alt="HDMI UM"
-              />
-            </span>
-            <span class="ux-content__channel--item">
-              <img
-                src="data:image/png;base64,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"
-                alt=""
-              />
-            </span>
-            <span class="ux-content__channel--item">
-              <img
-                src="https://s2-techtudo.glbimg.com/4yqQycXdXNeizI9RJL009lOn7y8=/0x0:1280x719/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/s/P/OzNS3EQ3yFNdh9frnESA/f538dfa1-5d1b-468a-b164-c3d7cf8e3b03.jpg"
-                alt=""
-              />
-            </span>
-            <span class="ux-content__channel--item"></span>
-          </div>
-
-          <div class="ux-content__wifi"></div>
-        </div>
 
         <div class="ux-content__control">
           <div class="ux-content__top-buttons">
@@ -83,31 +56,31 @@
                   alt=""
                 />
               </button>
-              <button class="ux-content__top-buttons--channels-item ps">
-                <img
-                  src="https://s2-techtudo.glbimg.com/4yqQycXdXNeizI9RJL009lOn7y8=/0x0:1280x719/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/s/P/OzNS3EQ3yFNdh9frnESA/f538dfa1-5d1b-468a-b164-c3d7cf8e3b03.jpg"
-                  alt=""
-                />
-              </button>
               <button class="ux-content__top-buttons--channels-item globo">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/pt/9/9e/Logotipo_da_TV_Globo.png?20211203155908"
                   alt=""
                 />
               </button>
+              <button
+                class="ux-content__top-buttons--channels-item ps"
+              ></button>
             </div>
           </div>
           <div class="ux-content__bottom-buttons">
             <div class="ux-content__bottom-buttons--side">
               VOL
-              <span></span>
+              <span class="plus"></span>
+              <span class="minus"></span>
             </div>
             <div class="ux-content__bottom-buttons--central">
               <span class="ux-content__bottom-buttons--central-item"></span>
               <span class="ux-content__bottom-buttons--central-item"></span>
               <span class="ux-content__bottom-buttons--central-item"></span>
               <span class="ux-content__bottom-buttons--central-item"></span>
-              <span class="ux-content__bottom-buttons--central-item">OK</span>
+              <span class="ux-content__bottom-buttons--central-item ok"
+                >OK</span
+              >
             </div>
             <div class="ux-content__bottom-buttons--side">
               CH
@@ -129,7 +102,12 @@
             <span class="ux-content__console-control--actions-item">X</span>
           </div>
         </div>
-
+        <div class="select-icon">
+          <img
+            src="https://s2-techtudo.glbimg.com/4yqQycXdXNeizI9RJL009lOn7y8=/0x0:1280x719/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/s/P/OzNS3EQ3yFNdh9frnESA/f538dfa1-5d1b-468a-b164-c3d7cf8e3b03.jpg"
+            alt=""
+          />
+        </div>
         <div class="overlay"></div>
       </div>
     </div>

@@ -7,13 +7,6 @@
   line-height: 1;
   font-family: 'Lato', sans-serif; }
 
-.change {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 8px; }
-
 .overlay {
   position: absolute;
   width: 100%;
@@ -78,6 +71,31 @@
 .ux-prototype .ux-control.console-control .ux-content__console-control {
   display: flex; }
 
+.ux-prototype .ux-control.console-control .ux-navbar__back {
+  display: block; }
+
+.ux-prototype .ux-control .select-icon {
+  position: absolute;
+  background-color: #ffffff;
+  width: 300px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 4px 0px #000000;
+  display: none; }
+
+.ux-prototype .ux-control .select-icon.ux-active {
+  display: flex; }
+
+.ux-prototype .ux-control .select-icon img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%; }
+
 .ux-prototype .ux-control .ux-navbar {
   width: 100%;
   background-color: #63326E;
@@ -85,6 +103,32 @@
   justify-content: space-between;
   padding: 8px 24px;
   color: #ffffff; }
+
+.ux-prototype .ux-control .ux-navbar__back {
+  width: 25px;
+  height: 3px;
+  border-radius: 100px;
+  border: none;
+  background-color: #ffffff;
+  position: relative;
+  margin: auto 0px;
+  z-index: 3;
+  display: none;
+  cursor: pointer; }
+
+.ux-prototype .ux-control .ux-navbar__back::after {
+  display: inline-block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  border: 12px solid transparent;
+  border-right-color: #63326E;
+  filter: drop-shadow(-1px 0px 0px #ffffff);
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0; }
 
 .ux-prototype .ux-control .ux-navbar__title {
   font-size: 32px; }
@@ -98,7 +142,8 @@
 .ux-prototype .ux-control .ux-navbar__menu--icon {
   display: flex;
   flex-direction: column;
-  gap: 4px; }
+  gap: 4px;
+  cursor: pointer; }
 
 .ux-prototype .ux-control .ux-navbar__menu--icon span {
   display: inline-block;
@@ -121,58 +166,13 @@
 
 .ux-prototype .ux-control .ux-navbar__menu--dropdown li {
   color: #000;
-  padding: 16px 8px; }
+  padding: 16px 8px;
+  cursor: pointer; }
 
 .ux-prototype .ux-control .ux-navbar__menu--dropdown li:hover {
   color: #000;
   padding: 16px 8px;
-  background-color: #00000020; }
-
-.ux-prototype .ux-control .ux-content {
-  display: none; }
-
-.ux-prototype .ux-control .ux-content__channel {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 8px; }
-
-.ux-prototype .ux-control .ux-content__channel--item {
-  width: calc(50% - 4px);
-  border: 3px solid #808080;
-  height: 200px;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden; }
-
-.ux-prototype .ux-control .ux-content__channel--item img {
-  width: 100%;
-  height: 100%; }
-
-.ux-prototype .ux-control .ux-content__channel--item:empty::after {
-  content: "";
-  display: inline-block;
-  width: 50%;
-  height: 5px;
-  border-radius: 100px;
-  background-color: #808080;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-
-.ux-prototype .ux-control .ux-content__channel--item:empty::before {
-  content: "";
-  display: inline-block;
-  width: 50%;
-  height: 5px;
-  border-radius: 100px;
-  background-color: #808080;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(90deg); }
+  background-color: #00000010; }
 
 .ux-prototype .ux-control .ux-content__control {
   width: 100%;
@@ -197,7 +197,8 @@
   display: inline-block;
   margin: 24px;
   border: none;
-  box-shadow: 5px 5px 0px #000000; }
+  box-shadow: 5px 5px 0px #000000;
+  cursor: pointer; }
 
 .ux-prototype .ux-control .ux-content__control .ux-content__top-buttons--off.ux-active {
   box-shadow: unset;
@@ -222,7 +223,8 @@
   height: 70px;
   border-radius: 50%;
   position: relative;
-  border: unset; }
+  border: unset;
+  cursor: pointer; }
 
 .ux-prototype .ux-control .ux-content__control .ux-content__top-buttons--channels-item:nth-child(1) {
   box-shadow: 5px 5px 0px #EF3E2E; }
@@ -231,10 +233,10 @@
   box-shadow: 5px 5px 0px #107C10; }
 
 .ux-prototype .ux-control .ux-content__control .ux-content__top-buttons--channels-item:nth-child(3) {
-  box-shadow: 5px 5px 0px #000000; }
+  box-shadow: 5px 5px 0px #aaaaaa; }
 
 .ux-prototype .ux-control .ux-content__control .ux-content__top-buttons--channels-item:nth-child(4) {
-  box-shadow: 5px 5px 0px #aaaaaa; }
+  box-shadow: 5px 5px 0px #000000; }
 
 .ux-prototype .ux-control .ux-content__control .ux-content__top-buttons--channels-item.ux-active {
   box-shadow: unset; }
@@ -291,6 +293,9 @@
   border: 3px solid #000000;
   position: relative; }
 
+.ux-prototype .ux-control .ux-content__control .ux-content__bottom-buttons--central-item {
+  cursor: pointer; }
+
 .ux-prototype .ux-control .ux-content__control .ux-content__bottom-buttons--central-item:not(:nth-child(5)) {
   display: inline-block;
   width: 0px;
@@ -343,7 +348,12 @@
   align-items: center;
   justify-content: center; }
 
-.ux-prototype .ux-control .ux-content__control .ux-content__bottom-buttons--side:after {
+.ux-prototype .ux-control .ux-content__control .ux-content__bottom-buttons--side .plus {
+  position: absolute;
+  top: 10px;
+  left: 50%; }
+
+.ux-prototype .ux-control .ux-content__control .ux-content__bottom-buttons--side .plus:after {
   content: "";
   width: 4px;
   height: 25px;
@@ -353,9 +363,10 @@
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 10px; }
+  border-radius: 10px;
+  cursor: pointer; }
 
-.ux-prototype .ux-control .ux-content__control .ux-content__bottom-buttons--side:before {
+.ux-prototype .ux-control .ux-content__control .ux-content__bottom-buttons--side .plus:before {
   content: "";
   width: 4px;
   height: 25px;
@@ -365,9 +376,10 @@
   top: 10px;
   left: 50%;
   transform: translateX(-50%) rotate(90deg);
-  border-radius: 10px; }
+  border-radius: 10px;
+  cursor: pointer; }
 
-.ux-prototype .ux-control .ux-content__control .ux-content__bottom-buttons--side span {
+.ux-prototype .ux-control .ux-content__control .ux-content__bottom-buttons--side .minus {
   width: 4px;
   height: 25px;
   background-color: #000000;
@@ -376,7 +388,8 @@
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%) rotate(90deg);
-  border-radius: 10px; }
+  border-radius: 10px;
+  cursor: pointer; }
 
 .ux-prototype .ux-control .ux-content__console-control {
   display: none;
