@@ -58,7 +58,7 @@ const UX_Prototype = {
         document.querySelector('.ux-content__top-buttons--channels-item.xbox').addEventListener('click', (e) => {
             document.querySelector('.ux-control').classList.add('console-control')
             video.pause();
-            video.src = 'xbox.mp4'
+            video.src = 'xbox_ch.mp4'
             video.load();
             video.play();
         })
